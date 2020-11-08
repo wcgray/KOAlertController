@@ -555,14 +555,14 @@ open class KOAlertController : UIViewController{
     public func addTextField(textField: @escaping (UITextField)->()){
         opsArray.append(BlockOperation(block: {
             if self.alertTextField == nil{
-                unowned let textF = UITextField(frame: CGRect(x: 0, y: 0, width: 0, height: 50))
+                let textF = UITextField(frame: CGRect(x: 0, y: 0, width: 0, height: 50))
                 textF.translatesAutoresizingMaskIntoConstraints = false
                 textF.delegate = self
                 self.textFieldArray.append(textF)
                 textField(textF)
             }else{
                 if let tempTextField = self.alertTextField as? UITextField{
-                    unowned let textF = tempTextField.createCopy()
+                    let textF = tempTextField.createCopy()
                     textF.translatesAutoresizingMaskIntoConstraints = false
                     textF.delegate = self
                     self.textFieldArray.append(textF)
